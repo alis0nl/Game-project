@@ -3,4 +3,17 @@ body {
     background-size: cover;
     overflow: hidden;
 }
-   
+#box1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+}
+#inbox {
+    width: 35%;
+    height: 30%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    background-color: #83C886;
+}
