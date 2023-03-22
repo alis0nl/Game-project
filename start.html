@@ -2,8 +2,13 @@
     <head>
         <script src = "script.js"></script>
         <link rel = "stylesheet" href = "style.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@300&display=swap" rel="stylesheet">
+
     </head>
     <body>
+        <span id = "time"></span>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>
             w = window.innerWidth 
@@ -16,15 +21,23 @@
             let p2width = 150 
 
             let papple 
+            let ms
         
 
             function setup() {
                 createCanvas(w,h)
-                papple = loadImage('pineapple.png') 
+            
             }
 
             function draw() {
-                image(papple, halfwidth, halfheight, p1width, p2width)
+                ms = millis() / 1000 
+                document.getElementById('time').innerHTML = ms.toFixed(0)
+                if (ms >= 3) {
+                    noLoop() 
+                }
+
+                jumper.show() 
+                jumper.update()
             }
         </script>
 

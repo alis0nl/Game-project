@@ -24,3 +24,9 @@ body {
   top: 80%;
   right: 10%;
 }
+#time {
+  position: absolute;
+  left: 50%;
+  font-family: 'Changa', sans-serif;
+  font-size: 30px;
+}
