@@ -4,12 +4,12 @@ function jumper() {
     this.gravity = .4
     this.lift = -20
     this.velocity = 0 
-    this.width = 50
-    this.height = 50  
+    this.width = 150
+    this.height = 150  
 }
 
 this.show = function() {
-    papple = loadImage('pineapple.png') 
+    image(papple,this.x,this.y,this.width,this.height,)
 }
 
 this.update = function() {

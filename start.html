@@ -23,21 +23,24 @@
             let papple 
             let ms
         
+            var jumper = new jumper()
+        
 
             function setup() {
                 createCanvas(w,h)
-            
+                papple = loadImage('pineapple.png') 
             }
 
             function draw() {
                 ms = millis() / 1000 
                 document.getElementById('time').innerHTML = ms.toFixed(0)
                 if (ms >= 3) {
-                    noLoop() 
+                    jumper.show() 
+                    jumper.update()
+                    noLoop()
                 }
 
-                jumper.show() 
-                jumper.update()
+                
             }
         </script>
 
