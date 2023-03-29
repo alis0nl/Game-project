@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script src = "script.js"></script>
+     
         <link rel = "stylesheet" href = "style.css"/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,7 +10,8 @@
     <body>
         <span id = "time"></span>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script>
+           <script src = "script.js"></script>
+           <script>
             w = window.innerWidth 
             h = window.innerHeight 
 
@@ -28,20 +29,26 @@
 
             function setup() {
                 createCanvas(w,h)
-                papple = loadImage('pineapple.png') 
+                ninja = loadImage('istockphoto-1403143477-612x612-removebg-preview.png') 
             }
 
-            function draw() {
-                ms = millis() / 1000 
-                document.getElementById('time').innerHTML = ms.toFixed(0)
-                if (ms >= 3) {
-                    jumper.show() 
-                    jumper.update()
-                    noLoop()
-                }
-
-                
+            function draw() {  
+                clear()   
+                jumper.show() 
+                jumper.update()
+               // ms = millis() / 1000 
+                //document.getElementById('time').innerHTML = ms.toFixed(0)
+                //if (ms >= 3) {
+                  //  noLoop()              
             }
+        //}
+
+        function keyPressed() {
+            if (keyCode === 32) {
+                jumper.up()
+            }
+        } 
+
         </script>
 
     </body>
