@@ -1,5 +1,5 @@
 #bg1 {
-    background-image: url(https://media.istockphoto.com/id/519962818/vector/cartoon-pizzeria-vector-flat-illustration.jpg);
+    background-image: url(2110.w023.n001.1301B.p1.1301.jpg);
     background-size: cover;
     overflow: hidden;
 }
@@ -14,14 +14,13 @@
     width: 35%;
     height: 30%;
     position: relative;
-
     background-color: #83C886;
 }
 #sensei {
   width: 10%;
   height: 20%;
   position: relative; 
-  top: 80%;
+  top: 50%;
   right: 10%;
 }
 #time {
