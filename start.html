@@ -7,10 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300&display=swap" rel="stylesheet">
 
     </head>
-    <body>
+    <body id = "bg2">
         <span id = "time"></span>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
            <script src = "script.js"></script>
+           <script src = "moveN.js"></script>
            <script>
             w = window.innerWidth 
             h = window.innerHeight 
@@ -21,7 +22,7 @@
             let p1width = 150
             let p2width = 150 
 
-            let papple 
+            
             let ms
         
             var jumper = new jumper()
@@ -30,6 +31,7 @@
             function setup() {
                 createCanvas(w,h)
                 ninja = loadImage('istockphoto-1403143477-612x612-removebg-preview.png') 
+                papple = loadImage('pineapple.png')
             }
 
             function draw() {  
@@ -45,9 +47,10 @@
 
         function keyPressed() {
             if (keyCode === 32) {
-                jumper.up()
+                moving.up()
             }
         } 
+
 
         </script>
 

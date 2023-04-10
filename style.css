@@ -3,6 +3,11 @@
     background-size: cover;
     overflow: hidden;
 }
+#bg2 {
+  background-image: url(2110.w023.n001.1301B.p1.1301.jpg);
+  background-size: cover;
+  overflow: hidden;
+}
 #box1 {
   width: 100%;
   height: 100%;
