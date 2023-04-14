@@ -1,6 +1,6 @@
 function moving() {
     this.x = 0 
-    this.y = h/2 
+    this.y = 465
     this.gravity = .3 
     this.lift = -20
     this.velocity = 0
@@ -11,7 +11,7 @@ function moving() {
         image(ninja,this.x,this.y,this.width,this.height)
     }
     this.up = function() {
-        this.velocity += this.lift
+        this.lift 
     }
     
 

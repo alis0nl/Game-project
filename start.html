@@ -26,6 +26,7 @@
             let ms
         
             var jumper = new jumper()
+            var moving = new moving()
         
 
             function setup() {
@@ -41,7 +42,9 @@
                // ms = millis() / 1000 
                 //document.getElementById('time').innerHTML = ms.toFixed(0)
                 //if (ms >= 3) {
-                  //  noLoop()              
+                  //  noLoop()      
+                moving.show() 
+                moving.up()         
             }
         //}
 
