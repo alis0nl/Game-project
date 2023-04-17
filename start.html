@@ -16,7 +16,8 @@
 
         <span id = "time"></span>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-           <script src = "script.js"></script>
+        <script defer src="https://unpkg.com/p5.collide2d"></script>  
+        <script src = "script.js"></script>
            <script src = "moveN.js"></script>
            <script>
             w = window.innerWidth 
@@ -39,11 +40,13 @@
                 createCanvas(w,h)
                 ninja = loadImage('istockphoto-1403143477-612x612-removebg-preview.png') 
                 papple = loadImage('pineapple.png') 
-                
+                vgheart = loadImage('video game heart icon.png')
             }
 
             function draw() {  
                 clear()   
+                image(vgheart,50,0,50,50) 
+                
                 jumper.show() 
                 jumper.update()
                // ms = millis() / 1000 
