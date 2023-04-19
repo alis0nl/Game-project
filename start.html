@@ -45,24 +45,21 @@
 
             function draw() {  
                 clear()   
-                image(vgheart,50,0,50,50) 
+                //image(vgheart,50,0,50,50) 
                 
                 jumper.show() 
                 jumper.update()
+                
                // ms = millis() / 1000 
                 //document.getElementById('time').innerHTML = ms.toFixed(0)
                 //if (ms >= 3) {
                   //  noLoop()      
-                moving.show() 
-                moving.up()         
+                moving()
+                         
             }
         //}
 
-        function keyPressed() {
-            if (keyCode === 32) {
-                moving.up()
-            }
-        } 
+      
 
 
         </script>

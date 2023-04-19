@@ -22,11 +22,12 @@ function jumper() {
             this.velocity *= 0.9 
         if (this.y > h) {
             this.y = h 
-            this.velocity = 0
+            
         }
         if (this.y < 0 ) {
             this.y = 0
         }
+
     }
 }
 

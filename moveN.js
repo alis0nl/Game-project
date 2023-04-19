@@ -1,23 +1,28 @@
 function moving() {
     this.x = 0 
-    this.y = 470
+    this.y = h + this.height 
     this.gravity = .3 
     this.lift = -20
     this.velocity = 0
     this.width = 120
     this.height = 120
 
-    this.show = function(){
-        image(ninja,this.x,this.y,this.width,this.height)
+    image(ninja,this.x,this.y,this.width,this.height)
+
+    if (keyIsDown(RIGHT_ARROW)&&(this.x < w)) {
+        this.x = this.x + 10
     }
-    this.up = function() {
-        this.velocity += this.lift 
+    if (keyIsDown(LEFT_ARROW) && (this.x > 0 )){
+        this.x = this.x - 10;
     }
-    if (this.y > h) {
-        this.y = h
+    if (keyIsDown(DOWN_ARROW) && (this.y +30 < h)){
+        this.y = this.y + 10;
+    } 
+    if (keyIsDown(UP_ARROW)&& (this.y > 0)){
+        this.y = this.y - 10;
     }
-    if (this.y < 0 ) {
-        this.y = 0
-    }
+
+    clear()
+    image(ninja,this.x,this.y,this.width,this.height);
 
     }
