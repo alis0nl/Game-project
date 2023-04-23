@@ -1,7 +1,7 @@
 //this is an object 
 function jumper() {
     //define it's position because we are inside object, use "this", when outisde use "jumper"
-    this.x = 0
+    this.x = Math.random() * (w - 0) + 0;
     this.y = 0
     this.gravity = .3
     //oppose gravity 
@@ -21,7 +21,8 @@ function jumper() {
             //air resistance 
             this.velocity *= 0.9 
         if (this.y > h) {
-            this.y = h 
+            this.x = Math.random() * (w - 0) + 0;
+            this.y = 0
             
         }
         if (this.y < 0 ) {
