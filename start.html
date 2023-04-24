@@ -8,7 +8,7 @@
 
     </head>
     <body id = "bg2">
-   
+        <div id = "score"></div>
 
         <span id = "time"></span>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -25,6 +25,8 @@
             let p1width = 150
             let p2width = 150 
 
+            let hit = false
+            let score = 0
             
             //let ms
         
@@ -52,10 +54,20 @@
                   //  noLoop()      
                 moving.show()
                 moving.walk()
-                image(vgheart,w - 110, 6, 50, 50)
-                image(vgheart,w - 160, 6, 50, 50)
-                image(vgheart,w - 60, 6, 50, 50) 
+                let hrt1 = image(vgheart,w - 110, 6, 50, 50)
+                let hrt2 = image(vgheart,w - 160, 6, 50, 50)
+                let hrt3 = image(vgheart,w - 60, 6, 50, 50) 
                 
+                hit = collideRectRect(moving.x, moving.y, 120, 120, jumper.x, jumper.y) 
+                if (hit == true) {
+                    document.getElementById("score").innerHTML += 1 
+                } 
+
+                if (jumper.y > h) {
+                    let hrt1 = image() // put empty hrt img inside  
+                     
+                    
+                }
             }
         //}
 
