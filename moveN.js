@@ -3,8 +3,8 @@ function moving() {
     this.height = 120
     this.x = 0 
     this.y = h - 200
-    this.gravity = .7 
-    this.lift = -2
+    this.gravity = .7
+    this.lift = -11
     this.velocity = 0
     
 
@@ -20,15 +20,17 @@ function moving() {
         if (keyIsDown(LEFT_ARROW) && (this.x > 0 )){
         this.x = this.x - 5;
     }
-//change to keyispressed
-        if (keyIsDown(UP_ARROW)&& (this.y > 0)){
-        //this.y = this.y - 5;  
-        //this.y += this.gravity
-            this.velocity += this.lift 
-         
+       
 
     }
+    
+    this.up = function() {
+        this.velocity += this.lift 
     }
+
+           
+            
+            
 
     this.update = function() {
         this.velocity += this.gravity 

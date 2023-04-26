@@ -8,7 +8,7 @@
 
     </head>
     <body id = "bg2">
-        <div id = "score"></div>
+        <div id = "scorebox"></div>
 
         <span id = "time"></span>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -27,12 +27,14 @@
 
             let hit = false
             let score = 0
-            
+            let hrtcont = 3
+
             //let ms
         
             var jumper = new jumper()
             var moving = new moving()
-        
+            
+
 
             function setup() {
                 createCanvas(w,h)
@@ -57,27 +59,42 @@
                 moving.walk()
                 moving.update() 
 
-                let hrt1 = image(vgheart,w - 110, 6, 50, 50)
-                let hrt2 = image(vgheart,w - 160, 6, 50, 50)
-                let hrt3 = image(vgheart,w - 60, 6, 50, 50) 
-                //let hrtcont = 3 
-                //if hrtcont = 3 then show all 3 red hrts
-                //when fruit touches floor, subtract by 1 and change red to grey
+                let hrt1 = image(vgheart,w - 160, 6, 50, 50)
+                let hrt2 = image(vgheart,w - 110, 6, 50, 50)
+                let hrt3 = image(vgheart,w - 60, 6, 50, 50)     
+
+                if (jumper.y >= h) {
+                    let hrtcont = hrtcont - 1 
+                    if (hrtcont == 2) {
+                        let hrt1 = image(empthrt,w - 160, 6, 50, 50)
+                    }
+                    if (hrtcont == 1) {
+                        let hrt2 = image(empthrt, w - 110, 6, 50, 50)
+                    }
+                    if (hrtcont == 0) {
+                        let hrt3 = image(empthrt, w - 60, 6, 50)
+                        
+                    }
+                  
+                        
+                }
+                
                 //add bomb 
                 
                 hit = collideRectRect(moving.x, moving.y, 120, 120, jumper.x, jumper.y) 
                 if (hit == true) {
-                    document.getElementById("score").innerHTML += 1 
+                    let points = document.getElementById("scorebox").innerHTML += 1 
+                    jumper.y = 0 
                 } 
 
-                if (jumper.y > h) {
-                    let hrt1 = image(empthrt,w - 110, 6, 50, 50 ) 
-                     
-                    
-                }
-            }
-        //}
 
+             
+        }
+        function keyPressed () {
+            if (keyCode === 38){
+                moving.up() 
+            }
+        }
       
 
 
