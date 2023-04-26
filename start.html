@@ -39,6 +39,7 @@
                 ninja = loadImage('istockphoto-1403143477-612x612-removebg-preview.png') 
                 papple = loadImage('pineapple.png') 
                 vgheart = loadImage('video game heart icon.png')
+                empthrt = loadImage('empty hrt.png') 
             }
 
             function draw() {  
@@ -54,9 +55,15 @@
                   //  noLoop()      
                 moving.show()
                 moving.walk()
+                moving.update() 
+
                 let hrt1 = image(vgheart,w - 110, 6, 50, 50)
                 let hrt2 = image(vgheart,w - 160, 6, 50, 50)
                 let hrt3 = image(vgheart,w - 60, 6, 50, 50) 
+                //let hrtcont = 3 
+                //if hrtcont = 3 then show all 3 red hrts
+                //when fruit touches floor, subtract by 1 and change red to grey
+                //add bomb 
                 
                 hit = collideRectRect(moving.x, moving.y, 120, 120, jumper.x, jumper.y) 
                 if (hit == true) {
@@ -64,7 +71,7 @@
                 } 
 
                 if (jumper.y > h) {
-                    let hrt1 = image() // put empty hrt img inside  
+                    let hrt1 = image(empthrt,w - 110, 6, 50, 50 ) 
                      
                     
                 }
