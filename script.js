@@ -20,13 +20,14 @@ function jumper() {
             this.y += this.velocity 
             //air resistance 
             this.velocity *= 0.9 
-        if (this.y > h) {
+        if (this.y + this.height > h ) {
             this.x = Math.random() * (w - 0) + 0;
             this.y = 0
-            
+            hrtcont = hrtcont - 1
         }
         if (this.y < 0 ) {
             this.y = 0
+
         }
 
     }

@@ -59,32 +59,43 @@
                 moving.walk()
                 moving.update() 
 
-                let hrt1 = image(vgheart,w - 160, 6, 50, 50)
-                let hrt2 = image(vgheart,w - 110, 6, 50, 50)
-                let hrt3 = image(vgheart,w - 60, 6, 50, 50)     
+                //add strawberry & power ups
 
-                if (jumper.y >= h) {
-                    let hrtcont = hrtcont - 1 
-                    if (hrtcont == 2) {
-                        let hrt1 = image(empthrt,w - 160, 6, 50, 50)
-                    }
-                    if (hrtcont == 1) {
-                        let hrt2 = image(empthrt, w - 110, 6, 50, 50)
-                    }
-                    if (hrtcont == 0) {
-                        let hrt3 = image(empthrt, w - 60, 6, 50)
-                        
-                    }
+                if(hrtcont == 3) {
+                    let hrt1 = image(vgheart,w - 165, 6, 50, 50)
+                    let hrt2 = image(vgheart,w - 115, 6, 50, 50)
+                    let hrt3 = image(vgheart,w - 65, 6, 50, 50) 
+             
+                } 
+                else if (hrtcont == 2) {
+                    image(empthrt,w - 160, 6, 50, 50) //1
+                    image(vgheart,w - 115, 6, 50, 50) //2
+                    image(vgheart,w - 65, 6, 50, 50)  //3
+                }
+                else if (hrtcont == 1) {
+                    image(empthrt,w - 160, 6, 50, 50)
+                    image(empthrt, w - 110, 6, 50, 50)
+                    image(vgheart,w - 65, 6, 50, 50) 
+                }
+                else if (hrtcont == 0) {
+                    image(empthrt,w - 160, 6, 50, 50)
+                    image(empthrt, w - 110, 6, 50, 50)
+                    image(empthrt, w - 60, 6, 50, 50)
+
+                    window.location.href = "gameend.html";     
+                }
                   
                         
-                }
+                
                 
                 //add bomb 
                 
-                hit = collideRectRect(moving.x, moving.y, 120, 120, jumper.x, jumper.y) 
+                hit = collideRectRect(moving.x, moving.y, 120, 120, jumper.x, jumper.y, 80, 80) 
                 if (hit == true) {
-                    let points = document.getElementById("scorebox").innerHTML += 1 
+                    score += 1 
+                    let points = document.getElementById("scorebox").innerHTML = score 
                     jumper.y = 0 
+                    jumper.x = Math.random() * (w - 80);
                 } 
 
 

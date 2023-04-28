@@ -23,8 +23,11 @@
   background-size: fill;
   animation-name: fade; 
   animation-duration: 6s;
+  font-size: 70px;
+  display: flex;
+  flex-direction: column;
 
-  
+ 
 }
 
 @keyframes fade {
@@ -48,4 +51,35 @@
   left: 50%;
   font-family: 'Changa', sans-serif;
   font-size: 30px;
+}
+#wrd {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  animation-name: fade;
+  animation-delay: 8s;
+  animation-duration: 6s;
+  animation-fill-mode: forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  position: relative;
+  left: 17%;
+
+}
+.playbut {
+  position: absolute;
+  top: 61%;
+  left: 58%;
+  width: 25%;
+  height: 25%;
+  opacity: 0;
+  animation-name: fade;
+  animation-delay: 11s;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+p {
+  margin: 3; 
 }
