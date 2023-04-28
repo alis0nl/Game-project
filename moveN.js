@@ -26,8 +26,11 @@ function moving() {
     
     this.up = function() {
         this.velocity += this.lift 
+       
     }
-
+    if (this.y <= 0) {
+        this.y = 0 
+    }
            
             
             

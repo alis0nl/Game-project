@@ -14,7 +14,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script defer src="https://unpkg.com/p5.collide2d"></script>  
         <script src = "script.js"></script>
-           <script src = "moveN.js"></script>
+        <script src = "moveN.js"></script>
+        <script src = "straw.js"></script>
            <script>
             w = window.innerWidth 
             h = window.innerHeight 
@@ -26,6 +27,8 @@
             let p2width = 150 
 
             let hit = false
+
+            let hit2 = false
             let score = 0
             let hrtcont = 3
 
@@ -42,6 +45,7 @@
                 papple = loadImage('pineapple.png') 
                 vgheart = loadImage('video game heart icon.png')
                 empthrt = loadImage('empty hrt.png') 
+                strawberry = loadImage('strawberry-cartoon-img.png') 
             }
 
             function draw() {  
@@ -58,6 +62,7 @@
                 moving.show()
                 moving.walk()
                 moving.update() 
+
 
                 //add strawberry & power ups
 
@@ -98,6 +103,19 @@
                     jumper.x = Math.random() * (w - 80);
                 } 
 
+                if (score == 8) { 
+                    berry.show() 
+                    berry.update() 
+                }
+                hit2 = collideRectRect(moving.x, moving.y, 120, 120, berry.x, berry.y, 100, 100) 
+                if (hit2 == true) {
+                    points = 0 
+                    score += 1 
+                    document.getElementById("scorebox").innerHTML = score 
+                    berry.y = 0 
+                    berry.x = Math.random() * (w - 100);
+                }
+                
 
              
         }
