@@ -22,7 +22,7 @@
   background-image: url(cartoon_scroll.png);
   background-size: fill;
   animation-name: fade; 
-  animation-duration: 6s;
+  animation-duration: 4.5s;
   font-size: 70px;
   display: flex;
   flex-direction: column;
@@ -57,17 +57,50 @@
   width: 100%;
   height: 100%;
   animation-name: fade;
-  animation-delay: 8s;
+  animation-delay: 20s;
   animation-duration: 6s;
   animation-fill-mode: forwards;
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-family: 'Cinzel', serif;
-  position: relative;
+  position: absolute;
   left: 17%;
 
 }
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: .75
+  }
+  50% { 
+    opacity: .5;
+  }
+  75% {
+    opacity: .25
+  }
+  100% {
+    opacity: 0;
+  }
+
+}
+#beninja {
+  position: relative;
+  top: 20%;
+  left: 12%;
+  font-size: 19px;
+  width: 70%;
+  height: 40%;
+  opacity: 0;
+  font-family: 'Homemade Apple', cursive;
+  animation-name: fadeout;
+  animation-duration: 17s;
+  animation-delay: 6s; 
+}
+
+
 .playbut {
   position: absolute;
   top: 61%;
@@ -76,7 +109,7 @@
   height: 25%;
   opacity: 0;
   animation-name: fade;
-  animation-delay: 11s;
+  animation-delay: 20s;
   animation-duration: 5s;
   animation-fill-mode: forwards;
 }
@@ -86,17 +119,19 @@ p {
 .ctrl {
   position: absolute; 
   top: 10%;
-  left: 10%;
-  width: 50%;
-  height: 50%;
+  left: 12%;
+  width: 40%;
+  height: 40%;
 }
 .msgbox {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
   position: relative;
-  top: 45%;
-  right: 20%; 
-  width: 50%;
-  height: 50%;
+  top: 10%;
+  left: 40%; 
+  width: 40%;
+  height: 10%;
+  font-family: 'Cabin Sketch', cursive;
+  color: white;
+  font-size: 35px;
   
 }
 .blackboard {
@@ -106,10 +141,110 @@ p {
   width: 90%;
   height: 110%;
   top: -10%; 
-  
+  left: 5%;
 
 
 }
 body {
   overflow-y: hidden; 
+  background-color: black;
+  overflow-x: hidden;
+}
+#ninjaintro {
+  position: relative;
+  top: 5%;
+  left: 12.5%;
+  width: 50%;
+  height: 10%;
+  color: white;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 35px;
+  
+}
+#fruitdes {
+  position: relative;
+  top: 25%;
+  left: 15%; 
+  width: 60%;
+  height: 10%;
+  font-family: 'Cabin Sketch', cursive;
+  color: white;
+  font-size: 35px;
+}
+#fruitchalk {
+  position: relative;
+  top: 5%;
+ left: 75%;
+ width: 7%;
+ height: 6%;
+}
+#bombdes {
+  position: relative;
+  top: 30%;
+  left: 25%;
+  font-family: 'Cabin Sketch', cursive;
+  color: white;
+  font-size: 35px;
+}
+#bombpic {
+  position: relative;
+  top: 10%;
+  left: 12.5%;
+  width: 10%;
+  height: 10%;
+
+}
+#next {
+  position: relative;
+  top: 25%;
+  left: 90%;
+  width: 10%;
+  height: 20%;
+  opacity: 0;
+  animation-name: fade;
+  animation-delay: 5s;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+#scorebox {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 10%;
+  height: 10%;
+  font-family: 'Changa One', cursive;
+  font-size: 30px;
+}
+.board {
+  background-image: url(blackboard.png); 
+  background-size: cover;
+  position: absolute; 
+  width: 90%;
+  height: 110%;
+  top: 0%; 
+  left: 5%;
+} 
+#lastmsg {
+  position: relative;
+  top: 20%;
+  left: 15%;
+  font-family: 'Cabin Sketch', cursive;
+  color: white;
+  font-size: 35px;
+}
+
+#face {
+  position: relative;
+  top: 20%;
+  left: 75%;
+  width: 10%;
+  height: 10%;
+
+}
+#restart {
+  position: relative;
+  top: 60%;
+  left: 15%; 
+  width: 10%;
+  height: 10%;
 }

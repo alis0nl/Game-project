@@ -1,5 +1,5 @@
 //this is an object 
-function berry() {
+function cherries() {
     //define it's position because we are inside object, use "this", when outisde use "jumper"
     this.x = Math.random() * (w - 100);
     this.y = 0
@@ -8,12 +8,12 @@ function berry() {
 
     //velocity 
     this.velocity = 0
-    this.width = 100
-    this.height = 100
+    this.width = 110
+    this.height = 110
 
     // build a function to declare what I look like 
     this.show = function() {
-        image(strawberry,this.x,this.y,this.width,this.height)
+        image(cherry,this.x,this.y,this.width,this.height)
     }
     this.update = function() {
             this.velocity += this.gravity 

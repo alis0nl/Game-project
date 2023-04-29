@@ -5,6 +5,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Changa+One&display=swap" rel="stylesheet">
 
     </head>
     <body id = "bg2">
@@ -12,10 +13,13 @@
 
         <span id = "time"></span>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.js" integrity="sha512-TU9AWtV5uUZPX8dbBAH8NQF1tSdigPRRT82vllAQ1Ke28puiqLA6ZVKxtUGlgrH6yWFnkKy+sE6luNEGH9ar0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script defer src="https://unpkg.com/p5.collide2d"></script>  
         <script src = "script.js"></script>
         <script src = "moveN.js"></script>
         <script src = "straw.js"></script>
+        <script src = "explosive.js"></script>
+        <script src = "cher.js"></script>
            <script>
             w = window.innerWidth 
             h = window.innerHeight 
@@ -32,12 +36,18 @@
             let score = 0
             let hrtcont = 3
 
-            //let ms
-        
+           let hit3 = false
+            let hit4 = false 
+
             var jumper = new jumper()
             var moving = new moving()
-            
+            var berry = new berry()
+            var boom = new boom()
+            var cherries = new cherries() 
 
+            function preload() {
+                jumpsound = loadSound('cartoon-jump.mp3');
+            }
 
             function setup() {
                 createCanvas(w,h)
@@ -46,22 +56,24 @@
                 vgheart = loadImage('video game heart icon.png')
                 empthrt = loadImage('empty hrt.png') 
                 strawberry = loadImage('strawberry-cartoon-img.png') 
+                jumpsound.setVolume(1.0) 
+                bomb = loadImage('bombdrop.png') 
+                cherry = loadImage('cherry-removebg-preview.png') 
+                   
             }
 
             function draw() {  
                 clear()   
-                //image(vgheart,50,0,50,50) 
-                
+         
                 jumper.show() 
                 jumper.update()
-                
-               // ms = millis() / 1000 
-                //document.getElementById('time').innerHTML = ms.toFixed(0)
-                //if (ms >= 3) {
-                  //  noLoop()      
+                 
                 moving.show()
                 moving.walk()
                 moving.update() 
+
+                boom.show() 
+                boom.update() 
 
 
                 //add strawberry & power ups
@@ -88,40 +100,61 @@
                     image(empthrt, w - 60, 6, 50, 50)
 
                     window.location.href = "gameend.html";     
+                 
                 }
                   
-                        
                 
-                
-                //add bomb 
-                
-                hit = collideRectRect(moving.x, moving.y, 120, 120, jumper.x, jumper.y, 80, 80) 
+                hit = collideRectRect(moving.x, moving.y, 140, 140, jumper.x, jumper.y, 100, 100) 
                 if (hit == true) {
                     score += 1 
                     let points = document.getElementById("scorebox").innerHTML = score 
                     jumper.y = 0 
-                    jumper.x = Math.random() * (w - 80);
+                    jumper.x = Math.random() * (w - 100); 
                 } 
-
                 if (score == 8) { 
                     berry.show() 
-                    berry.update() 
+                    berry.update()  
+                    speedup + 2 
                 }
-                hit2 = collideRectRect(moving.x, moving.y, 120, 120, berry.x, berry.y, 100, 100) 
+
+                hit2 = collideRectRect(moving.x, moving.y, 140, 140, berry.x, berry.y, 100, 100) 
                 if (hit2 == true) {
-                    points = 0 
                     score += 1 
-                    document.getElementById("scorebox").innerHTML = score 
+                    document.getElementById("scorebox").innerHTML =  score 
                     berry.y = 0 
                     berry.x = Math.random() * (w - 100);
+                  
                 }
                 
+                hit3 = collideRectRect(moving.x, moving.y, 140, 140, boom.x, boom.y, 100, 100)
+                if (hit3 == true) {
+                    hrtcont = hrtcont - 1
+                    boom.x =  Math.random() * (w - 100);
+                    boom.y = 0 
+                 }
 
-             
+                if (score == 20) {
+                    cherries.show() 
+                    cherries.update() 
+                    speedup + 2
+                }
+                hit4 = collideRectRect(moving.x, moving.y, 140, 140, cherries.x, cherries.y, 110, 110) 
+                if (hit4 == true) {
+                    score += 1 
+                    cherries.x = Math.random() * (w - 100);
+                    cherries.y = 0 
+                }
+
         }
         function keyPressed () {
             if (keyCode === 38){
                 moving.up() 
+                if (jumpsound.isPlaying()) {
+                    jumpsound.stop()
+                }
+                else {
+                    jumpsound.play() 
+                }
             }
         }
       
